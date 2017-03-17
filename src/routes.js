@@ -24,29 +24,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     url: '/categories',
     templateUrl: 'src/templates/categories.template.html',
     controller: 'CategoriesController as $ctrl'//,
-    // resolve: {
-    //   categories: ['MenuDataService', function (MenuDataService) {
-    //   //  return MenuDataService.getAllCategories();
-    //   return MenuDataService.getItems();
-    //   }]
-  //  }
   })
-
-//   // Item detail
-  // .state('itemDetail', {
-  //    url: '/item-detail/{short_name}',
-  //   templateUrl: 'src/templates/items.template.html',
-  //   controller: 'ItemDetailController as itemDetail',
-  //   params: {
-  //     short_name: null
-  //   },
-  //   resolve: {
-  //     items: ['MenuDataService', function (MenuDataService) {
-  //     //  return MenuDataService.getAllCategories();
-  //     return MenuDataService.getItemsForCategory(short_name);
-  //     }]
-  //   }
-  // });
 
   .state('itemDetail', {
   url: '/item-detail/{short_name}',
@@ -57,9 +35,8 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
           function ($stateParams, MenuDataService) {
             return MenuDataService.getItemsForCategory($stateParams.short_name)
               .then(function (items) {
-              //  for (int i = 0; i < )
-                console.log(items)
-                return items; //[$stateParams.short_name];
+              //  console.log(items)
+                return items;
               });
           }]
   }
